@@ -1,0 +1,40 @@
+@import 'src/styles/mixins.scss';
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 37px 0 24px;
+    border-bottom: solid 1px #000;
+
+    @include md {
+        flex-direction: column;
+    }
+
+    @include sm {
+        padding: 8px 0 18px;
+    }
+
+    &-Info {
+        max-width: 414px;
+    }
+
+    &-Title {
+        margin-bottom: 8px;
+
+        font-size: 2.25rem;
+        line-height: 3rem;
+
+        @include xs {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-Links {
+        word-spacing: 1.6rem;
+
+        @include md {
+            margin-top: 19px;
+        }
+    }
+}

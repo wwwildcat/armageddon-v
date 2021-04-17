@@ -1,0 +1,23 @@
+@import 'src/styles/mixins.scss';
+
+.Layout {
+    max-width: 920px;
+    margin: 0 auto;
+
+    @include lg {
+        max-width: none;
+
+        margin: 0 32px;
+    }
+
+    @include sm {
+        margin: 0 16px;
+    }
+
+    &-Footer {
+        display: flex;
+        justify-content: center;
+
+        text-align: center;
+    }
+}

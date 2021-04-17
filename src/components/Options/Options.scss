@@ -1,0 +1,44 @@
+@import 'src/styles/mixins.scss';
+
+.Options {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 26px 0 24px;
+
+    @include md {
+        flex-direction: column;
+    }
+
+    @include sm {
+        padding: 10px 0 16px;
+    }
+
+    &-Filter {
+        @include md {
+            margin-bottom: 16px;
+        }
+    }
+
+    &-Checkbox {
+        margin: 0;
+        margin-right: 10px;
+    }
+
+    &-Links {
+        @include sm {
+            line-height: 1.5rem;
+        }
+    }
+
+    &-Button {
+        background-color: unset;
+        border: none;
+        padding: 0;
+
+        font-size: inherit;
+        text-decoration: underline;
+
+        cursor: pointer;
+    }
+}

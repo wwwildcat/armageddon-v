@@ -1,0 +1,9 @@
+.Links {
+    display: inline-block;
+
+    &-Item {
+        &_active {
+            font-weight: 700;
+        }
+    }
+}
