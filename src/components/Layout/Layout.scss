@@ -18,6 +18,12 @@
         display: flex;
         justify-content: center;
 
+        margin: 56px 0 46px;
+
+        @include sm {
+            margin: 32px 0 24px;
+        }
+
         text-align: center;
     }
 }
