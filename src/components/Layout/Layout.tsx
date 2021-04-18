@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Header from '../Header/Header';
 import Options from '../Options/Options';
-import Main from '../Main/Main';
+import List from '../List/List';
 import './Layout.scss';
 
 const Layout = () => (
@@ -13,7 +13,7 @@ const Layout = () => (
         <div className="Layout">
             <Header active={0} />
             <Options />
-            <Main distanceType="kilometers" />
+            <List distanceType="kilometers" />
             <footer className="Layout-Footer">2021 © Все права и планета защищены</footer>
         </div>
     </>

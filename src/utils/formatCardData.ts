@@ -14,7 +14,6 @@ export const formatDistance = (distance: string, distanceType: 'kilometers' | 'l
     } else return distance;
 };
 
-export const formatDiameter = (minDiameter: number, maxDiameter: number) =>
-    `${Math.round((maxDiameter + minDiameter) / 2)} м`;
+export const formatDiameter = (diameter: number) => `${Math.round(diameter)} м`;
 
 export const formatDate = (date: string) => dateFormatter.format(new Date(date));
