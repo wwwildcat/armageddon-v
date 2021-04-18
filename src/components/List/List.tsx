@@ -4,11 +4,7 @@ import Card from '../Card/Card';
 import { fetchAllAsteroids } from '@store/thunks';
 import State from '@store/types';
 
-interface Props {
-    distanceType: 'kilometers' | 'lunar';
-}
-
-const List = ({ distanceType }: Props) => {
+const List = () => {
     const asteroids = useSelector((state: State) => state.allAsteroids);
     const linkToNext = useSelector((state: State) => state.linkToNext);
     const dispatch = useDispatch();
@@ -24,7 +20,7 @@ const List = ({ distanceType }: Props) => {
             next={loadMore}
         >
             {asteroids.map((asteroid, index) => (
-                <Card asteroid={asteroid} distanceType={distanceType} key={index} />
+                <Card asteroid={asteroid} key={index} />
             ))}
         </InfiniteScroll>
     );

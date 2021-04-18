@@ -1,4 +1,4 @@
-import { AsteroidShort, AsteroidFull } from './types';
+import { AsteroidShort, AsteroidFull, DistanceType } from './types';
 
 export const setAllAsteroids = (json: AsteroidShort[]) => ({
     type: 'SET_ALL_ASTEROIDS',
@@ -8,6 +8,11 @@ export const setAllAsteroids = (json: AsteroidShort[]) => ({
 export const setLinkToNext = (link: string) => ({
     type: 'SET_LINK_TO_NEXT',
     payload: link,
+});
+
+export const setDistanceType = (distanceType: DistanceType) => ({
+    type: 'SET_DISTANCE_TYPE',
+    payload: distanceType,
 });
 
 export const setCurrentAsteroid = (json: AsteroidFull) => ({

@@ -2,6 +2,7 @@ import { AnyAction } from 'redux';
 import {
     SET_ALL_ASTEROIDS,
     SET_LINK_TO_NEXT,
+    SET_DISTANCE_TYPE,
     SET_CURRENT_ASTEROID,
     ADD_TO_DESTRUCTION_LIST,
     SET_ERROR,
@@ -29,6 +30,12 @@ const reducer = (state: State, action: AnyAction): State => {
             return {
                 ...state,
                 linkToNext: payload.replace('http:', 'https:'),
+            };
+
+        case SET_DISTANCE_TYPE:
+            return {
+                ...state,
+                distanceType: payload,
             };
 
         case SET_CURRENT_ASTEROID:

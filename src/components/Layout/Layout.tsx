@@ -13,7 +13,7 @@ const Layout = () => (
         <div className="Layout">
             <Header active={0} />
             <Options />
-            <List distanceType="kilometers" />
+            <List />
             <footer className="Layout-Footer">2021 © Все права и планета защищены</footer>
         </div>
     </>

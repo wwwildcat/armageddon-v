@@ -14,6 +14,7 @@ let store: Store | null;
 const initialState = {
     allAsteroids: [] as AsteroidShort[],
     currentAsteroid: {} as AsteroidFull,
+    distanceType: 'kilometers',
     error: null as null | Error,
     linkToNext: generateNextLink(),
 };

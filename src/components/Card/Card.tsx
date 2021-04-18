@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
 import { formatDistance, formatDiameter, formatDate } from 'src/utils/formatCardData';
-import { AsteroidShort, DistanceType } from '@store/types';
+import State, { AsteroidShort } from '@store/types';
 import Dino from '../svg/dino.svg';
 import Asteroid from '../svg/asteroid.svg';
 import './Card.scss';
 
 interface Props {
     asteroid: AsteroidShort;
-    distanceType: DistanceType;
 }
 
-const Card = ({ asteroid, distanceType }: Props) => {
+const Card = ({ asteroid }: Props) => {
     const {
         id,
         name,
@@ -19,6 +19,7 @@ const Card = ({ asteroid, distanceType }: Props) => {
         diameter,
         closeApproach: { date, distance },
     } = asteroid;
+    const distanceType = useSelector((state: State) => state.distanceType);
 
     return (
         <div className="Card">

@@ -22,4 +22,8 @@ a {
 
 * {
   	box-sizing: border-box;
+
+	&:focus:not(:focus-visible) {
+		outline: 0;
+	}
 }
