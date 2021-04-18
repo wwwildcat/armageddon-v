@@ -5,6 +5,11 @@ export const setAllAsteroids = (json: AsteroidShort[]) => ({
     payload: json,
 });
 
+export const setLinkToNext = (link: string) => ({
+    type: 'SET_LINK_TO_NEXT',
+    payload: link,
+});
+
 export const setCurrentAsteroid = (json: AsteroidFull) => ({
     type: 'SET_CURRENT_ASTEROID',
     payload: json,

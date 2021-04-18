@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { createStore, applyMiddleware, AnyAction, Reducer, Store } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
+import { generateNextLink } from 'src/utils/generators';
 import reducer from './reducers';
 import State, { AsteroidShort, AsteroidFull } from './types';
 
@@ -12,8 +13,9 @@ let store: Store | null;
 
 const initialState = {
     allAsteroids: [] as AsteroidShort[],
-    currentAsteroid: null as null | AsteroidFull,
+    currentAsteroid: {} as AsteroidFull,
     error: null as null | Error,
+    linkToNext: generateNextLink(),
 };
 
 const initStore = (preloadedState = initialState) => {
@@ -31,6 +33,9 @@ export const initializeStore = (preloadedState?: State) => {
         _store = initStore({
             ...store.getState(),
             ...preloadedState,
+            allAsteroids: [...store.getState().allAsteroids, ...preloadedState.allAsteroids],
+            distanceType: store.getState().distanceType,
+            linkToNext: store.getState().linkToNext,
         });
 
         store = null;

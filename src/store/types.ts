@@ -53,4 +53,5 @@ export default interface State {
     allAsteroids: AsteroidShort[];
     currentAsteroid: AsteroidFull;
     error: Error;
+    linkToNext: string;
 }

@@ -1,6 +1,7 @@
 import { AnyAction } from 'redux';
 import {
     SET_ALL_ASTEROIDS,
+    SET_LINK_TO_NEXT,
     SET_CURRENT_ASTEROID,
     ADD_TO_DESTRUCTION_LIST,
     SET_ERROR,
@@ -11,10 +12,23 @@ const reducer = (state: State, action: AnyAction): State => {
     const { type, payload } = action;
 
     switch (type) {
-        case SET_ALL_ASTEROIDS:
+        case SET_ALL_ASTEROIDS: {
+            const { allAsteroids } = state;
+            const newAsteroids = payload.filter(
+                (newItem: AsteroidShort) =>
+                    !allAsteroids.some((oldItem) => newItem.id === oldItem.id)
+            );
+
             return {
                 ...state,
-                allAsteroids: payload,
+                allAsteroids: allAsteroids.concat(newAsteroids),
+            };
+        }
+
+        case SET_LINK_TO_NEXT:
+            return {
+                ...state,
+                linkToNext: payload.replace('http:', 'https:'),
             };
 
         case SET_CURRENT_ASTEROID:
