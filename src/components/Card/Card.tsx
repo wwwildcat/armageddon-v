@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { formatDistance, formatDiameter, formatDate } from 'src/utils/formatCardData';
+import { addToDestructionList } from '@store/actions';
 import State, { AsteroidShort } from '@store/types';
+import Button from '../Button/Button';
 import Dino from '../svg/dino.svg';
 import Asteroid from '../svg/asteroid.svg';
 import './Card.scss';
@@ -16,10 +19,18 @@ const Card = ({ asteroid }: Props) => {
         id,
         name,
         isHazardous,
+        inDestructionList,
         diameter,
         closeApproach: { date, distance },
     } = asteroid;
     const distanceType = useSelector((state: State) => state.distanceType);
+    const [awaitDestruction, setAwaitDestruction] = useState(inDestructionList);
+    const dispatch = useDispatch();
+
+    const handleClick = (id: string) => {
+        dispatch(addToDestructionList(id));
+        setAwaitDestruction(true);
+    };
 
     return (
         <div className="Card">
@@ -64,7 +75,11 @@ const Card = ({ asteroid }: Props) => {
             <div className="Card-Result">
                 Оценка:
                 <div className="Card-IsHazardous">{isHazardous ? 'опасен' : 'не опасен'}</div>
-                <button className="Card-Button">На уничтожение</button>
+                {awaitDestruction ? (
+                    <span className="Card-AwaitDestruction">Ожидает уничтожения</span>
+                ) : (
+                    <Button handler={() => handleClick(id)} text="На уничтожение" />
+                )}
             </div>
         </div>
     );

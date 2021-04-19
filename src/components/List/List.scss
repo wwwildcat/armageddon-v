@@ -1,0 +1,18 @@
+@import 'src/styles/mixins.scss';
+
+.List {
+    &-ButtonContainer {
+        display: flex;
+        justify-content: center;
+
+        margin-top: 32px;
+
+        @include sm {
+            margin-top: 16px;
+        }
+    }
+
+    &-Text {
+        text-align: center;
+    }
+}
