@@ -5,27 +5,33 @@
     --left-shift: 0;
     --bottom-shift: 0;
 
-    display: flex;
-    justify-content: space-between;
-
-    position: relative;
-
     overflow: hidden;
 
     margin-bottom: 16px;
-    padding: 24px;
 
     border: solid 1px #000;
     border-radius: 10px;
 
-    @include md {
-        padding: 16px;
+    @include sm {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
     }
 
-    @include sm {
-        flex-direction: column;
+    &-Short {
+        display: flex;
+        justify-content: space-between;
 
-        margin-bottom: 24px;
+        position: relative;
+
+        padding: 24px 24px 0;
+
+        @include md {
+            padding: 16px 16px 0;
+        }
+
+        @include sm {
+            flex-direction: column;
+        }
     }
 
     &-Background {
@@ -53,10 +59,6 @@
 
         left: calc(157px - var(--left-shift));
         bottom: calc(100px - var(--bottom-shift));
-
-        @include md {
-            left: calc(100px - var(--left-shift));
-        }
 
         @include sm {
             bottom: calc(60px - var(--bottom-shift));
@@ -114,6 +116,10 @@
         }
     }
 
+    &-List {
+        margin-bottom: 24px;
+    }
+
     &-Item {
         display: flex;
         justify-content: center;
@@ -136,12 +142,23 @@
         flex-direction: column;
         align-items: center;
 
+        min-height: 113px;
+        min-width: 167px;
+
         position: relative;
         z-index: 1;
 
-        padding-top: 16px;
+        margin-top: 16px;
 
         line-height: 1.5rem;
+
+        @include lg {
+            min-width: 150px;
+        }
+
+        @include sm {
+            margin-top: -8px;
+        }
     }
 
     &-IsHazardous {
@@ -151,6 +168,19 @@
     }
 
     &-AwaitDestruction {
+        text-align: center;
+    }
+
+    &-Full {
+        margin: 16px 32px;
+
+        @include md {
+            margin: 16px;
+        }
+    }
+
+    &-Approaches {
+        font-weight: 700;
         text-align: center;
     }
 }

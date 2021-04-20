@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useCookies } from 'react-cookie';
 import ListInfinite from './_infinite/List_infinite';
 import Card from '../Card/Card';
 import Button from '../Button/Button';
@@ -17,9 +18,20 @@ const List = ({ infinite }: Props) => {
     const children = (infinite
         ? asteroids
         : asteroids.filter((item) => item.inDestructionList)
-    ).map((asteroid, index) => <Card asteroid={asteroid} key={index} />);
+    ).map((asteroid, index) => <Card asteroid={asteroid} key={index} type="short" />);
 
     const [showButton, setShowButton] = useState(true);
+    const [cookie, , removeCookie] = useCookies();
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', (e) => {
+            e.preventDefault();
+            Object.keys(cookie).forEach((name) => {
+                removeCookie(name);
+            });
+        });
+    });
+
     const handleClick = () => {
         setShowButton(false);
     };

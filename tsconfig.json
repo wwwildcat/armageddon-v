@@ -4,6 +4,7 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@store/*": ["src/store/*"],
+            "@utils/*": ["src/utils/*"],
         },
         "target": "es5",
         "lib": [

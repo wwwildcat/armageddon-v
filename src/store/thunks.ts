@@ -1,8 +1,8 @@
 import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { setAllAsteroids, setLinkToNext, setError } from './actions';
-import { formatAllAsteroids } from '../utils/formatJSON';
-import State from './types';
+import { setAllAsteroids, setCurrentAsteroid, setLinkToNext, setError } from './actions';
+import { formatAllAsteroids, formatCurrentAsteroid } from '@utils/formatJSON';
+import State, { AsteroidFull } from './types';
 
 export const fetchAllAsteroids = (url: string) => {
     return async (dispatch: ThunkDispatch<State, void, Action>) => {
@@ -14,6 +14,23 @@ export const fetchAllAsteroids = (url: string) => {
 
             dispatch(setAllAsteroids(formatAllAsteroids(asteroids)));
             dispatch(setLinkToNext(fullJSON.links.next));
+        } catch (err) {
+            dispatch(setError(err));
+        }
+    };
+};
+
+export const fetchCurrentAsteroid = (id: string, destruction: string) => {
+    return async (dispatch: ThunkDispatch<State, void, Action>) => {
+        try {
+            const response = await fetch(
+                `http://www.neowsapp.com/rest/v1/neo/${id}?api_key=DEMO_KEY`
+            );
+            const fullJSON = await response.json();
+
+            dispatch(
+                setCurrentAsteroid(formatCurrentAsteroid(fullJSON, destruction) as AsteroidFull)
+            );
         } catch (err) {
             dispatch(setError(err));
         }

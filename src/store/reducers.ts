@@ -46,11 +46,11 @@ const reducer = (state: State, action: AnyAction): State => {
 
         case ADD_TO_DESTRUCTION_LIST: {
             const { allAsteroids } = state;
-            const asteroidToDestruct = allAsteroids.find(
-                (item) => item.id === payload
-            ) as AsteroidShort;
+            const asteroidToDestruct = allAsteroids.find((item) => item.id === payload);
 
-            asteroidToDestruct.inDestructionList = true;
+            if (asteroidToDestruct) {
+                asteroidToDestruct.inDestructionList = true;
+            }
 
             return state;
         }
