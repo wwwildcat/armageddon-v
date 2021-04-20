@@ -17,7 +17,7 @@ const List = ({ infinite }: Props) => {
     const children = (infinite
         ? asteroids
         : asteroids.filter((item) => item.inDestructionList)
-    ).map((asteroid, index) => <Card asteroid={asteroid} key={index} />);
+    ).map((asteroid, index) => <Card asteroid={asteroid} key={index} type="short" />);
 
     const [showButton, setShowButton] = useState(true);
     const handleClick = () => {

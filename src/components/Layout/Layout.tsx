@@ -1,7 +1,10 @@
 import Head from 'next/head';
+import { useSelector } from 'react-redux';
+import State from '@store/types';
 import Header from '../Header/Header';
 import Options from '../Options/Options';
 import List from '../List/List';
+import Card from '../Card/Card';
 import './Layout.scss';
 
 export enum PageType {
@@ -14,19 +17,27 @@ interface Props {
     pageType: PageType;
 }
 
-const Layout = ({ pageType }: Props) => (
-    <>
-        <Head>
-            <title>Армагеддон-V</title>
-            <link href="/favicon.ico" rel="icon" />
-        </Head>
-        <div className="Layout">
-            <Header active={pageType} />
-            <Options />
-            {pageType !== PageType.asteroid && <List infinite={pageType === PageType.home} />}
-            <footer className="Layout-Footer">2021 © Все права и планета защищены</footer>
-        </div>
-    </>
-);
+const Layout = ({ pageType }: Props) => {
+    const { asteroid, closeApproachFull } = useSelector((state: State) => state.currentAsteroid);
+
+    return (
+        <>
+            <Head>
+                <title>Армагеддон-V</title>
+                <link href="/favicon.ico" rel="icon" />
+            </Head>
+            <div className="Layout">
+                <Header active={pageType} />
+                <Options showFilter={pageType !== PageType.asteroid} />
+                {pageType === PageType.asteroid ? (
+                    <Card asteroid={asteroid} closeApproachFull={closeApproachFull} type="full" />
+                ) : (
+                    <List infinite={pageType === PageType.home} />
+                )}
+                <footer className="Layout-Footer">2021 © Все права и планета защищены</footer>
+            </div>
+        </>
+    );
+};
 
 export default Layout;

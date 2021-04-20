@@ -26,6 +26,8 @@
     }
 
     &-Links {
+        margin-left: auto;
+
         @include sm {
             line-height: 1.5rem;
         }
