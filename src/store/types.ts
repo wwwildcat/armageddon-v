@@ -64,6 +64,7 @@ export interface AsteroidFull {
 export default interface State {
     allAsteroids: AsteroidShort[];
     currentAsteroid: AsteroidFull;
+    hazardous: boolean;
     distanceType: DistanceType;
     error: Error;
     linkToNext: string;

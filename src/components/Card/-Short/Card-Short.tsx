@@ -33,6 +33,10 @@ const CardShort = ({
     const dispatch = useDispatch();
 
     useEffect(() => {
+        setAwaitDestruction(inDestructionList);
+    }, [inDestructionList]);
+
+    useEffect(() => {
         window.addEventListener('beforeunload', (e) => {
             e.preventDefault();
             removeCookie(`${id}-destruction`);
