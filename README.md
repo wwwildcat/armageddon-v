@@ -31,3 +31,9 @@ npm install
 npm run dev
 ```
 URL: [http://localhost:3000](http://localhost:3000)
+
+### Unit testing
+```
+npm test
+```
+Using [Jest](https://github.com/facebook/jest), [react-testing-library](https://github.com/testing-library/react-testing-library), [jest-dom](https://github.com/testing-library/jest-dom) and [redux-mock-store](https://github.com/reduxjs/redux-mock-store).

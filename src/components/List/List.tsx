@@ -39,10 +39,15 @@ const List = ({ infinite }: Props) => {
     };
 
     return (
-        <>
+        <div className="List" data-testid="list">
             <InfiniteScroll
+                className="List-ItemsContainer"
                 hasMore={infinite}
-                loader={<div key={0}>Loading...</div>}
+                loader={
+                    <div data-testid="loader" key={0}>
+                        Loading...
+                    </div>
+                }
                 loadMore={loadMore}
                 threshold={500}
             >
@@ -65,7 +70,7 @@ const List = ({ infinite }: Props) => {
                         Вы пока не отправили ни одного астероида на уничтожение.
                     </div>
                 ))}
-        </>
+        </div>
     );
 };
 
