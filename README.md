@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Armageddon-V
 
-## Getting Started
+This is a [Next.js](https://nextjs.org/) sample app with near-Earth asteroids information. Based on [NASA API data](https://api.nasa.gov/).
 
-First, run the development server:
+Bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). Deployed on [Vercel](https://vercel.com/docs).
 
-```bash
-npm run dev
-# or
-yarn dev
+URL: [https://armageddon-v-wwwildcat.vercel.app/](https://armageddon-v-wwwildcat.vercel.app/)
+
+### Features
+
+- The list of asteroids sorted by their date of closest approach to the Earth (from current date to future) with infinite scroll (implemented by [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller)). Basic displayed info for each asteroid: name, size, potential hazard, closest approach date and distance to the Earth.
+- Each asteroid has its own page with basic info and the list of all close approaches to the Earth. Displayed info for each approach: date and time, velocity relative to the Earth, distance to the Earth and orbiting body.
+- Filter to show only hazardous asteroids.
+- Distances in kilometers or in LD (Lunar Distance - distance from the Earth to the Moon).
+- Asteroids can be added to the destruction list and then sent for destruction by Bruce Willis Brigade =)
+
+### Technologies
+
+- [Next.js](https://github.com/vercel/next.js/)
+- [TypeScript](https://github.com/Microsoft/TypeScript)
+- [Redux](https://github.com/reduxjs/redux)
+- [react-redux](https://github.com/reduxjs/react-redux)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [node-sass](https://github.com/sass/node-sass)
+- [cookie](https://github.com/jshttp/cookie)
+- [react-cookie](https://github.com/reactivestack/cookies/tree/master/packages/react-cookie)
+
+### Development
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+npm install
+npm run dev
+```
+URL: [http://localhost:3000](http://localhost:3000)
