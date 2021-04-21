@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setDistanceType } from '@store/actions';
+import { setDistanceType, setHazardous } from '@store/actions';
 import State, { DistanceType } from '@store/types';
 import Links from '../Links/Links';
 import './Options.scss';
@@ -15,7 +15,13 @@ enum DistanceTypes {
 
 const Options = ({ showFilter }: Props) => {
     const distanceType = useSelector((state: State) => state.distanceType);
+    const hazardous = useSelector((state: State) => state.hazardous);
     const dispatch = useDispatch();
+
+    const handleFilter = (value: boolean) => {
+        dispatch(setHazardous(value));
+    };
+
     const handleClick = (type: DistanceType) => {
         dispatch(setDistanceType(type));
     };
@@ -24,7 +30,13 @@ const Options = ({ showFilter }: Props) => {
         <div className="Options">
             {showFilter && (
                 <div className="Options-Filter">
-                    <input className="Options-Checkbox" id="hazardous" type="checkbox" />
+                    <input
+                        className="Options-Checkbox"
+                        defaultChecked={hazardous}
+                        id="hazardous"
+                        onChange={(e) => handleFilter(e.target.checked)}
+                        type="checkbox"
+                    />
                     <label htmlFor="hazardous">Показать только опасные</label>
                 </div>
             )}

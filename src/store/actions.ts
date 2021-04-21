@@ -10,6 +10,11 @@ export const setLinkToNext = (link: string) => ({
     payload: link,
 });
 
+export const setHazardous = (isHazardous: boolean) => ({
+    type: 'SET_HAZARDOUS',
+    payload: isHazardous,
+});
+
 export const setDistanceType = (distanceType: DistanceType) => ({
     type: 'SET_DISTANCE_TYPE',
     payload: distanceType,

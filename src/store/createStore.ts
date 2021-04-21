@@ -15,6 +15,7 @@ const initialState = {
     allAsteroids: [] as AsteroidShort[],
     currentAsteroid: {} as AsteroidFull,
     distanceType: 'kilometers',
+    hazardous: false,
     error: null as null | Error,
     linkToNext: generateNextLink(),
 };
@@ -35,6 +36,7 @@ export const initializeStore = (preloadedState?: State) => {
             ...store.getState(),
             ...preloadedState,
             allAsteroids: [...store.getState().allAsteroids, ...preloadedState.allAsteroids],
+            hazardous: store.getState().hazardous,
             distanceType: store.getState().distanceType,
             linkToNext: store.getState().linkToNext,
         });
