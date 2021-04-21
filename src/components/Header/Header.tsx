@@ -3,11 +3,11 @@ import Links from '../Links/Links';
 import './Header.scss';
 
 interface Props {
-    active: number;
+    active: 0 | 1 | 2 | 3;
 }
 
 const Header = ({ active }: Props) => (
-    <header className="Header">
+    <header className="Header" data-testid="header">
         <div className="Header-Info">
             <div className="Header-Title">ARMAGGEDON V</div>
             <div className="Header-Subtitle">

@@ -27,7 +27,7 @@ const Options = ({ showFilter }: Props) => {
     };
 
     return (
-        <div className="Options">
+        <div className="Options" data-testid="options">
             {showFilter && (
                 <div className="Options-Filter">
                     <input

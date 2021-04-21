@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Card = ({ asteroid, closeApproachFull, type }: Props) => (
-    <div className="Card">
+    <div className="Card" data-testid={`card-${type}`}>
         <CardShort asteroid={asteroid} type={type} />
         {type === 'full' && (
             <CardFull closeApproachFull={closeApproachFull as CloseApproachDataFull[]} />

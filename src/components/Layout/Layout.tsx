@@ -43,7 +43,9 @@ const Layout = ({ pageType }: Props) => {
                         )}
                     </>
                 ) : (
-                    <div className="Layout-Error">Ошибка! Такой страницы нет</div>
+                    <div className="Layout-Error" data-testid="error">
+                        Ошибка! Такой страницы нет
+                    </div>
                 )}
                 <footer className="Layout-Footer">2021 © Все права и планета защищены</footer>
             </div>
