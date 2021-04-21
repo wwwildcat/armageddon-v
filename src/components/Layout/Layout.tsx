@@ -11,6 +11,7 @@ export enum PageType {
     home = 0,
     asteroid,
     destructionList,
+    error,
 }
 
 interface Props {
@@ -28,11 +29,21 @@ const Layout = ({ pageType }: Props) => {
             </Head>
             <div className="Layout">
                 <Header active={pageType} />
-                <Options showFilter={pageType !== PageType.asteroid} />
-                {pageType === PageType.asteroid ? (
-                    <Card asteroid={asteroid} closeApproachFull={closeApproachFull} type="full" />
+                {pageType !== PageType.error ? (
+                    <>
+                        <Options showFilter={pageType !== PageType.asteroid} />
+                        {pageType === PageType.asteroid ? (
+                            <Card
+                                asteroid={asteroid}
+                                closeApproachFull={closeApproachFull}
+                                type="full"
+                            />
+                        ) : (
+                            <List infinite={pageType === PageType.home} />
+                        )}
+                    </>
                 ) : (
-                    <List infinite={pageType === PageType.home} />
+                    <div className="Layout-Error">Ошибка! Такой страницы нет</div>
                 )}
                 <footer className="Layout-Footer">2021 © Все права и планета защищены</footer>
             </div>
