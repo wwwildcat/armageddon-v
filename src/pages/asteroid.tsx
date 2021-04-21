@@ -19,7 +19,11 @@ export const getServerSideProps = async ({ req, query: { id } }: GetServerSideCt
     await dispatch(fetchCurrentAsteroid(id, data[id]));
 
     const props = { initialReduxState: store.getState() };
-    return { props: JSON.parse(JSON.stringify(props)) };
+
+    return {
+        props: JSON.parse(JSON.stringify(props)),
+        notFound: store.getState().error || !store.getState().currentAsteroid,
+    };
 };
 
 const AsteroidPage = () => <Layout pageType={PageType.asteroid} />;
