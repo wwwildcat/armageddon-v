@@ -1,3 +1,4 @@
+export const SET_IS_LOADING = 'SET_IS_LOADING';
 export const SET_ALL_ASTEROIDS = 'SET_ALL_ASTEROIDS';
 export const SET_LINK_TO_NEXT = 'SET_LINK_TO_NEXT';
 export const SET_DISTANCE_TYPE = 'SET_DISTANCE_TYPE';

@@ -18,6 +18,7 @@ const initialState = {
     hazardous: false,
     error: null as null | Error,
     linkToNext: generateNextLink(),
+    isLoading: false,
 };
 
 const initStore = (preloadedState = initialState) => {

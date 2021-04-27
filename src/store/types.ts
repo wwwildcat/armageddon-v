@@ -68,4 +68,5 @@ export default interface State {
     distanceType: DistanceType;
     error: Error;
     linkToNext: string;
+    isLoading: boolean;
 }

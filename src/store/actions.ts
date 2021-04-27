@@ -1,5 +1,9 @@
 import { AsteroidShort, AsteroidFull, DistanceType } from './types';
 
+export const setIsLoading = () => ({
+    type: 'SET_IS_LOADING',
+});
+
 export const setAllAsteroids = (json: AsteroidShort[]) => ({
     type: 'SET_ALL_ASTEROIDS',
     payload: json,

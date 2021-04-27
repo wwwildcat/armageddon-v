@@ -1,12 +1,19 @@
 import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { setAllAsteroids, setCurrentAsteroid, setLinkToNext, setError } from './actions';
+import {
+    setIsLoading,
+    setAllAsteroids,
+    setCurrentAsteroid,
+    setLinkToNext,
+    setError,
+} from './actions';
 import { formatAllAsteroids, formatCurrentAsteroid } from '@utils/formatJSON';
 import State, { AsteroidFull } from './types';
 
 export const fetchAllAsteroids = (url: string) => {
     return async (dispatch: ThunkDispatch<State, void, Action>) => {
         try {
+            dispatch(setIsLoading());
             const response = await fetch(url);
             const fullJSON = await response.json();
             const currentDate = new URL(url).searchParams.getAll('start_date')[0];

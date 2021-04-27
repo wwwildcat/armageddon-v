@@ -1,5 +1,6 @@
 import { AnyAction } from 'redux';
 import {
+    SET_IS_LOADING,
     SET_ALL_ASTEROIDS,
     SET_LINK_TO_NEXT,
     SET_HAZARDOUS,
@@ -14,6 +15,12 @@ const reducer = (state: State, action: AnyAction): State => {
     const { type, payload } = action;
 
     switch (type) {
+        case SET_IS_LOADING:
+            return {
+                ...state,
+                isLoading: true,
+            };
+
         case SET_ALL_ASTEROIDS: {
             const { allAsteroids } = state;
             const newAsteroids = payload.filter(
@@ -24,6 +31,7 @@ const reducer = (state: State, action: AnyAction): State => {
             return {
                 ...state,
                 allAsteroids: allAsteroids.concat(newAsteroids),
+                isLoading: false,
             };
         }
 
