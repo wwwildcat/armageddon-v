@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import InfiniteScroll from 'react-infinite-scroller';
-import { fetchAllAsteroids } from '@store/thunks';
+import { useSelector } from 'react-redux';
 import Card from '../Card/Card';
 import Button from '../Button/Button';
+import ListContent from './-Content/List-Content';
 import State from '@store/types';
 import './List.scss';
 
@@ -13,18 +12,10 @@ interface Props {
 
 const List = ({ infinite }: Props) => {
     const asteroids = useSelector((state: State) => state.allAsteroids);
-    const linkToNext = useSelector((state: State) => state.linkToNext);
     const hazardous = useSelector((state: State) => state.hazardous);
 
-    const dispatch = useDispatch();
     const [showButton, setShowButton] = useState(true);
     const [isHazardous, setIsHazardous] = useState(hazardous);
-
-    const filtered = isHazardous ? asteroids.filter((item) => item.isHazardous) : asteroids;
-    const children = (infinite
-        ? filtered
-        : filtered.filter((item) => item.inDestructionList)
-    ).map((asteroid, index) => <Card asteroid={asteroid} key={index} type="short" />);
 
     useEffect(() => {
         setIsHazardous(hazardous);
@@ -34,25 +25,15 @@ const List = ({ infinite }: Props) => {
         setShowButton(false);
     };
 
-    const loadMore = () => {
-        dispatch(fetchAllAsteroids(linkToNext));
-    };
+    const filtered = isHazardous ? asteroids.filter((item) => item.isHazardous) : asteroids;
+    const children = (infinite
+        ? filtered
+        : filtered.filter((item) => item.inDestructionList)
+    ).map((item) => <Card asteroid={item} key={item.id} type="short" />);
 
     return (
         <div className="List" data-testid="list">
-            <InfiniteScroll
-                className="List-ItemsContainer"
-                hasMore={infinite}
-                loader={
-                    <div data-testid="loader" key={0}>
-                        Loading...
-                    </div>
-                }
-                loadMore={loadMore}
-                threshold={500}
-            >
-                {children}
-            </InfiniteScroll>
+            <ListContent>{children}</ListContent>
             {!infinite &&
                 (children.length ? (
                     <div className="List-ButtonContainer">

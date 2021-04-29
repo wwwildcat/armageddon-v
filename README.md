@@ -8,7 +8,7 @@ URL: [https://armageddon-v-wwwildcat.vercel.app/](https://armageddon-v-wwwildcat
 
 ### Features
 
-- The list of asteroids sorted by their date of closest approach to the Earth (from current date to future) with infinite scroll (implemented by [react-infinite-scroller](https://github.com/danbovey/react-infinite-scroller)). Basic displayed info for each asteroid: name, size, potential hazard, closest approach date and distance to the Earth.
+- The list of asteroids sorted by their date of closest approach to the Earth (from current date to future) with infinite scroll. Basic displayed info for each asteroid: name, size, potential hazard, closest approach date and distance to the Earth.
 - Each asteroid has its own page with basic info and the list of all close approaches to the Earth. Displayed info for each approach: date and time, velocity relative to the Earth, distance to the Earth and orbiting body.
 - Filter to show only hazardous asteroids.
 - Distances in kilometers or in LD (Lunar Distance - distance from the Earth to the Moon).
