@@ -5,7 +5,7 @@ module.exports = {
         es6: true,
     },
     parserOptions: { ecmaVersion: 8 },
-    ignorePatterns: ['node_modules/*', '.next/*', '.out/*'],
+    ignorePatterns: ['node_modules/*', '*hermione.js', '.next/*', '.out/*'],
     extends: ['eslint:recommended'],
     overrides: [
         {

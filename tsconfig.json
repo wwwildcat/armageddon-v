@@ -28,8 +28,8 @@
         "next.config.js",
         "next-env.d.ts",
         "**/*.ts",
-        "**/*.tsx"
-    ],
+        "**/*.tsx",
+        "**/*.hermione.js"],
     "exclude": [
         "node_modules"
     ]

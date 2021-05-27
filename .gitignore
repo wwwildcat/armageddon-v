@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+/hermione-html-report/*
+!/hermione-html-report/chrome
 
 # next.js
 /.next/
